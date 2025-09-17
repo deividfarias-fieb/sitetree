@@ -1,0 +1,161 @@
+/* Base inspirada em Bootstrap: espaçamentos, tipografia e botões */
+/* Sistema de cores com suporte a light/dark */
+:root {
+  --bg: #0b1220;
+  --bg-accent-1: #0e152b;
+  --bg-accent-2: #0b1b3a;
+  --text: #e9edf5;
+  --muted: #b7c1d6;
+  --surface: #121a2f;
+  --border: #26324f;
+  --primary: #0d6efd;       /* cor "bootstrap-like" */
+  --primary-600: #0b5ed7;
+  --shadow: 0 8px 22px rgba(0,0,0,.25);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f6f8fc;
+    --bg-accent-1: #eef2ff;
+    --bg-accent-2: #e9f0ff;
+    --text: #1f2937;
+    --muted: #4b5563;
+    --surface: #ffffff;
+    --border: #e5e7eb;
+    --primary: #0d6efd;
+    --primary-600: #0b5ed7;
+    --shadow: 0 8px 16px rgba(2,6,23,.08);
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, var(--bg-accent-2), transparent 60%),
+    radial-gradient(900px 500px at 110% 10%, var(--primary)/12%, transparent 50%),
+    linear-gradient(180deg, var(--bg-accent-1), var(--bg));
+}
+
+/* Layout da página */
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 20px 36px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.avatar {
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--primary), var(--primary-600));
+  color: #fff;
+  font-weight: 800;
+  font-size: 34px;
+  letter-spacing: .5px;
+  box-shadow: var(--shadow);
+  user-select: none;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(26px, 3.6vw, 34px);
+  line-height: 1.18;
+}
+
+.subtitle {
+  margin: 6px auto 0;
+  max-width: 520px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* Lista de links */
+.links {
+  margin-top: 22px;
+  display: grid;
+  gap: 14px;
+}
+
+/* Botão estilo Bootstrap/Linktree */
+.link-btn {
+  display: grid;
+  grid-template-columns: 28px 1fr 18px;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: transform .08s ease, border-color .18s ease, box-shadow .18s ease, background .18s ease;
+  will-change: transform;
+}
+
+.link-btn:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklab, var(--primary) 45%, var(--border));
+  box-shadow: 0 10px 28px rgba(0,0,0,.18);
+}
+
+.link-btn:active {
+  transform: translateY(0);
+}
+
+.icon {
+  width: 28px; height: 28px;
+  display: grid; place-items: center;
+  color: var(--primary);
+  background: color-mix(in oklab, var(--primary) 16%, transparent);
+  border: 1px solid color-mix(in oklab, var(--primary) 30%, var(--border));
+  border-radius: 10px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.text strong {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: .2px;
+}
+
+.text small {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.chevron {
+  font-size: 22px;
+  color: var(--muted);
+}
+
+/* Rodapé */
+.footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 26px;
+}
+
+/* Suporte a foco (acessibilidade) */
+.link-btn:focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--primary) 65%, white);
+  outline-offset: 2px;
+}
