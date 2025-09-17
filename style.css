@@ -1,30 +1,30 @@
-/* Base inspirada em Bootstrap: espaçamentos, tipografia e botões */
-/* Sistema de cores com suporte a light/dark */
+/* Paleta geral (mantida) */
 :root {
-  --bg: #0b1220;
-  --bg-accent-1: #0e152b;
+  --bg: #0b1b3a;            /* azul-marinho de fundo */
+  --bg-accent-1: #0b1b3a;   /* fixo para manter o tema navy */
   --bg-accent-2: #0b1b3a;
   --text: #e9edf5;
   --muted: #b7c1d6;
-  --surface: #121a2f;
+  --surface: #121a2f;       /* cartões/botões */
   --border: #26324f;
-  --primary: #0d6efd;       /* cor "bootstrap-like" */
+  --primary: #0d6efd;
   --primary-600: #0b5ed7;
   --shadow: 0 8px 22px rgba(0,0,0,.25);
 }
 
+/* Força o mesmo tema também no modo claro */
 @media (prefers-color-scheme: light) {
   :root {
-    --bg: #f6f8fc;
-    --bg-accent-1: #eef2ff;
-    --bg-accent-2: #e9f0ff;
-    --text: #1f2937;
-    --muted: #4b5563;
-    --surface: #ffffff;
-    --border: #e5e7eb;
+    --bg: #0b1b3a;
+    --bg-accent-1: #0b1b3a;
+    --bg-accent-2: #0b1b3a;
+    --text: #f4f7ff;
+    --muted: #d2d8ea;
+    --surface: #0f1830;
+    --border: #26324f;
     --primary: #0d6efd;
     --primary-600: #0b5ed7;
-    --shadow: 0 8px 16px rgba(2,6,23,.08);
+    --shadow: 0 8px 16px rgba(2,6,23,.25);
   }
 }
 
@@ -34,10 +34,8 @@ body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
   color: var(--text);
-  background:
-    radial-gradient(1200px 600px at 10% -10%, var(--bg-accent-2), transparent 60%),
-    radial-gradient(900px 500px at 110% 10%, var(--primary)/12%, transparent 50%),
-    linear-gradient(180deg, var(--bg-accent-1), var(--bg));
+  /* Fundo em azul-marinho sólido */
+  background: var(--bg);
 }
 
 /* Layout da página */
@@ -115,15 +113,17 @@ body {
   transform: translateY(0);
 }
 
+/* Ícones em branco (inclui os SVGs das redes) */
 .icon {
   width: 28px; height: 28px;
   display: grid; place-items: center;
-  color: var(--primary);
-  background: color-mix(in oklab, var(--primary) 16%, transparent);
-  border: 1px solid color-mix(in oklab, var(--primary) 30%, var(--border));
+  color: #ffffff;                  /* <-- Ícones brancos */
+  background: transparent;         /* remove o fundo do ícone */
+  border: 1px solid rgba(255,255,255,.22);
   border-radius: 10px;
 }
 
+/* Texto do botão */
 .text {
   display: flex;
   flex-direction: column;
@@ -141,9 +141,10 @@ body {
   font-size: 13px;
 }
 
+/* Chevron também branco para combinar com os ícones */
 .chevron {
   font-size: 22px;
-  color: var(--muted);
+  color: #ffffff;                  /* <-- Branco */
 }
 
 /* Rodapé */
@@ -154,7 +155,7 @@ body {
   margin-top: 26px;
 }
 
-/* Suporte a foco (acessibilidade) */
+/* Foco (acessibilidade) */
 .link-btn:focus-visible {
   outline: 3px solid color-mix(in oklab, var(--primary) 65%, white);
   outline-offset: 2px;
